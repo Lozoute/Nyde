@@ -1,4 +1,11 @@
-const canvas = document.getElementById("game-canvas");
+(() => {
+  const canvas = document.getElementById("game-canvas");
+  const game = new Game(window, canvas);
+
+  game.start();
+})();
+
+/*const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 
 var x = canvas.width / 2;
@@ -14,6 +21,10 @@ let paddleDx = 5;
 
 let rightPressed = false;
 let leftPressed = false;
+
+function clearCanvas() {
+
+}
 
 function drawBall() {
   ctx.beginPath();
@@ -32,6 +43,7 @@ function drawPaddle() {
 }
 
 function draw() {
+  clearCanvas();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawPaddle();
   drawBall();
@@ -51,6 +63,7 @@ function draw() {
   if (leftPressed) {
     paddleX -= paddleDx;
   }
+  requestAnimationFrame(draw);
 }
 
 document.addEventListener('keydown', (e) => {
@@ -71,4 +84,4 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
-setInterval(draw, 10);
+draw();*/
