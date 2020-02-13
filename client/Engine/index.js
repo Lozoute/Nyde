@@ -3,6 +3,8 @@
     // Dependencies definitions
     const dependencies = {
         "GameEngine.js": ["Entities/GameObject.js"],
+        "Main.js": ["GameEngine.js", "Entities/Ball.js"],
+        "Entities/Ball.js": ["Entities/GameObject.js"],
         "Entities/GameObject.js": ["Exceptions/ImplementationMissingException.js"],
         "Exceptions/ImplementationMissingException.js": []
     };
