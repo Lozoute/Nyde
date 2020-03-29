@@ -2,11 +2,17 @@
 (() => {
     // Dependencies definitions
     const dependencies = {
-        "GameEngine.js": ["Entities/GameObject.js"],
-        "Main.js": ["GameEngine.js", "Entities/Ball.js"],
+        "GameEngine.js": ["Entities/GameObject.js", "Collisions/CollisionManager.js"],
+        "Main.js": ["GameEngine.js", "Entities/Ball.js", "Entities/Block.js"],
         "Entities/Ball.js": ["Entities/GameObject.js"],
         "Entities/GameObject.js": ["Exceptions/ImplementationMissingException.js"],
-        "Exceptions/ImplementationMissingException.js": []
+        "Exceptions/ImplementationMissingException.js": [],
+        "Entities/Block.js": ["Maths/Point.js", "Collisions/PolygonCollider.js", "Collisions/CollisionManager.js", "Entities/Polygon.js"],
+        "Collisions/CollisionManager.js": [],
+        "Collisions/PolygonCollider.js": ["Maths/Vector2d.js"],
+        "Maths/Point.js": [],
+        "Maths/Vector2d.js": ["Maths/Point.js"],
+        "Entities/Polygon.js": ["Entities/GameObject.js", ]
     };
     const loadedDependencies = [];
     // Create html <script> tag
@@ -34,7 +40,7 @@
     };
     Object.keys(dependencies).forEach(file => {
         resolveDependencies(file, []);
-    })
+    });
     const writeTag = (index) => {
         if (index >= scriptTags.length){
             return;

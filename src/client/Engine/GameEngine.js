@@ -5,7 +5,8 @@ class GameEngine {
 		this._$ctx = gameCanvas.getContext("2d");
 		this._$objects = [];
 		this._$stop = false;
-		this._$framePerSeconds = 60;
+        this._$framePerSeconds = 60;
+        this._$collisionManager = new CollisionManager();
 	}
 
     // Public methods
@@ -56,6 +57,7 @@ class GameEngine {
 
     _executeFrameEvents() {
         this._updateObjects();
+        this._$collisionManager.checkCollisions();
         this._drawObjects();
     }
 

@@ -1,10 +1,9 @@
 class Ball extends GameObject {
     constructor(position, radius) {
-        super();
+        super(position);
         this._$initialPosition = position;
         this._$direction = {x: 1, y: 1};
         this._$speed = 5;
-        this._$position = position;
         this._$radius = radius;
     }
 
@@ -24,10 +23,6 @@ class Ball extends GameObject {
     //Getters
     get initialPosition() {
         return this._$initialPosition;
-    }
-
-    get position() {
-        return this._$position;
     }
 
     get radius() {
